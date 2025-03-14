@@ -6,6 +6,7 @@ apk update
 
 echo "⬇️ Installation de Go et Git..."
 apk add --no-cache go git
+apk add binutils
 
 echo "✅ Go installé :"
 go version
@@ -26,3 +27,5 @@ echo "📋 Vérification des dépendances du projet..."
 go list -m all
 
 echo "🚀 Installation terminée !"
+
+
