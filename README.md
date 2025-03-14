@@ -1,20 +1,28 @@
-# Challenge-sql
+#!/bin/sh
+set -e  # Arrêter le script en cas d'erreur
 
-Objet : Demande d’accord pour changement de profil mobilité 2025
+echo "🔄 Mise à jour des dépôts Alpine..."
+apk update
 
-Bonjour Madame Gourdou,
+echo "⬇️ Installation de Go et Git..."
+apk add --no-cache go git
 
-J’espère que vous allez bien.
+echo "✅ Go installé :"
+go version
 
-Je me permets de vous contacter concernant mon profil mobilité chez Arval Mobility. Après vérification, il s'avère qu'une erreur a été commise de leur part, et j’ai été affecté au dispositif "PASS Mobilité Durable" alors que mes dépenses correspondent davantage à celles couvertes par "La Prime de Transport".
+echo "📁 Création du projet Go..."
+mkdir -p /app
+cd /app
 
-Arval Mobility me demande un accord formel de votre part afin de valider mon changement de profil pour l’année 2025. Un simple accord par email suffirait pour procéder à cette modification.
+echo "🔹 Initialisation du module Go..."
+go mod init myproject
 
-Seriez-vous en mesure de me confirmer votre accord par retour de mail ?
+echo "📦 Installation de la version spécifique de golang.org/x/oauth2@v0.27.0..."
+go get golang.org/x/oauth2@v0.27.0
 
-Je vous remercie par avance pour votre aide et reste à votre disposition pour toute information complémentaire.
+echo "✅ Dépendance OAuth2 installée avec succès."
 
-Bonne journée,
+echo "📋 Vérification des dépendances du projet..."
+go list -m all
 
-[Cordialement / Bien à vous]
-[Votre Nom]
+echo "🚀 Installation terminée !"
